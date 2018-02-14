@@ -1,5 +1,5 @@
 # ONLINE TREASURE HUNT
-**ONLINE TREASURE HUNT** is a game in which you are to get the answers of few riddles in each level,by each level difficulty level will also increase.You will be provided with a hint in the form of image or audio track.People who will solve maximum riddles in less time will win the game.
+**ONLINE TREASURE HUNT** is a game in which you are to get the answers of few riddles in each level,by each level difficulty level will also incrase.You will be provided with a hint in the form of image or audio track.People who will solve maximnum riddles in less time will win the game.
 
 ## Technologies Used IN ONLINE TREASURE HUNT
 - HTML/CSS/JAVASCRIPT
@@ -7,20 +7,20 @@
 
 IF you want to work with  you need to follow following steps:
 
-1.It is better to work with *virtual environment* whenver working with any django projects.To create virtual environment use virtual environment need to be installed.
- - To install virtual environment:
- ```
- pip3 install virtualenv
+1. It is better to work with *virtual enviornment* whenver working with any django projects.To create virtual enviornment use virtual enviornment need to be installed.
 
- ```
+ - To install virtual enviornment:
+    ```
+    pip3 install virtualenv
+
+    ```
  - To create virtual enviornment:
  ```
  virtualenv <name of your virtual enviornment>
-
  ```
-2.Now clone the repository from https://github.com/lugnitdgp/online-treasure-hunt.git
+2. Now clone the repository from https://github.com/lugnitdgp/online-treasure-hunt.git
 
-3.Before you download any requirements related to project you should activate virtualenv:
+3. Before you download any requirements related to project you should activate virtualenv:
 
 #### For Linux/Mac OSX.   
 ```
@@ -43,15 +43,16 @@ pip install -r requirements.txt
 pip3 install python-decouple
 
 ```
-  -Update your **.gitignore** adding the **.env** files,so you dont commit any sensitive data.
-  -Now import the library in *online-treasure-hunt/settings.py*
+  - Update your **.gitignore** adding the **.env** files,so you dont commit any sensitive data.
+  
+  - Now import the library in *online-treasure-hunt/settings.py*
   ```
   from decouple import config
-
-  ```
   SECRET_KEY = config('SECRET_KEY')
   DEBUG = config('DEBUG', default=False, cast=bool)
 
+  ```
+  
 6.You need to generate your own GoogleOAuth credentials with the following steps:
 
   + Go to the [Google Developers Console](https://console.developers.google.com/)
@@ -74,7 +75,7 @@ pip3 install python-decouple
 
     ```
 
-7. Generate Facebook login credentials with the following steps:
+7.Generate Facebook login credentials with the following steps:
 
   + Go to [Facebook Developers Console](https://developers.facebook.com/)
 
@@ -88,12 +89,9 @@ pip3 install python-decouple
 
   + Now go to **Settings/Basic** and then in the _App Domains_ just put `localhost` and hit **Save Changes**.
 
-
   + Copy the App ID and App Secret and add them to the `.env` file.
 
-
-8.Migrate the changes you have made to database.
-
+8.Migrate the changes you have made to databse.
 
     python3 manage.py makemigrations
     python3 manage.py migrate
@@ -102,4 +100,4 @@ pip3 install python-decouple
 
 9.Now you can open oth with `http://localhost:8000` in your browser. (Opening `http://127.0.0.1:8000` may cause problems with Social Login)
 
-Thank You !!!
+Thank You!!
