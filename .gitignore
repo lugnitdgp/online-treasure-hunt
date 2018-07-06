@@ -4,4 +4,4 @@ __pycache__
 media
 .env
 *.idea
-online-treasure-hunt/oth/migrations
+oth/oth/migrations

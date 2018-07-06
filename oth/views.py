@@ -5,7 +5,7 @@ from django.contrib.auth import models
 from django.contrib import messages
 from oth import models
 import datetime
-
+#Views
 def landing(request):
     return render(request, 'landing.html')
 
