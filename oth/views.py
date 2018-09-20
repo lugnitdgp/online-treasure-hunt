@@ -5,6 +5,7 @@ from django.contrib.auth import models
 from django.contrib import messages
 from oth import models
 import datetime
+import json
 
 def landing(request):
     return render(request, 'landing.html')
@@ -112,3 +113,24 @@ def lboard(request):
 
 def rules(request):
     return render(request, 'index_page.html')
+
+
+'''Leaderboard API'''
+def leaderboard_api(request):
+    p = models.player.objects.order_by('-score','timestamp')
+    cur_rank = 1
+
+    players_array = []
+
+    for pl in p:
+        pl.rank = cur_rank
+        players_array.append({
+            'rank':pl.rank,
+            'name':pl.name,
+            'score':pl.score,
+        })
+        cur_rank += 1
+
+    return HttpResponse(json.dumps(players_array))
+
+    
