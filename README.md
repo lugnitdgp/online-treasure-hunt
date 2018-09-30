@@ -1,7 +1,8 @@
-# Online Treasure Hunt is an online event of the Aavishkar fest organised by GNU/Linux users group, NIT Durgapur.
+# Online Treasure Hunt
 
+#### This an online event conducted during AAVishkar Fest organised by GNU/Linux User's Group , NIT Durgapur
 
-## Build Instructions :
+### Build Instructions :
 
 1. Clone the repository. 
 2. Start a new virtualenv. 
@@ -45,4 +46,5 @@ $ python manage.py createsuperuser
 $ python manage.py runserver
 
 ```
+
 
