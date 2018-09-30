@@ -7,11 +7,11 @@
 3. `cd online-treasure-hunt` & `pip install -r requirements.txt`
 4. `touch .env`
 5. In the .env file write the env vars along with the corresponding values
-    -`SECRET_KEY=abcd`
-    -`SOCIAL_AUTH_FACEBOOK_KEY=abcd`
-    -`SOCIAL_AUTH_FACEBOOK_SECRET=abcd`
-    -`SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=4gd6d8644d`
-    -`SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=abcd`
+    -SECRET_KEY=abcd
+    -SOCIAL_AUTH_FACEBOOK_KEY=abcd
+    -SOCIAL_AUTH_FACEBOOK_SECRET=abcd
+    -SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=abcd
+    -SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=abcd
 
 6. `python manage.py makemigrations` & `python manage.py migrate`
 7. `python manage.py runserver`
