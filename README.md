@@ -1,6 +1,6 @@
 # Online Treasure Hunt
 
-#### This an online event conducted during AAVishkar Fest organised by GNU/Linux User's Group , NIT Durgapur
+#### This an online event conducted during Aavishkar 2.0 Fest organised by GNU/Linux User's Group , NIT Durgapur
 
 ### Build Instructions :
 
