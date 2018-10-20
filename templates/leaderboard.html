@@ -1,3 +1,5 @@
+<!-- Leaderboard page -->
+
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,10 +9,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Online Treasure Hunt</title>
   <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
-
-  <!-- <script type='text/javascript' src="./js/parallax.min.js"></script> -->
-
-  <!-- <link rel="stylesheet" type="text/css" href="./css/main.css">  -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard.css' %}"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,14 +28,17 @@
         </svg> 
       </label>
       <ul class="menu-sidebar">
+        {% if player %}
+        <li>{{ player.name }}</li>
+        {% else %}
+        <li>Login to get yourself on the leaderboard !</li>
+        {% endif %}
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="#">Logout</a></li>
         <li class="page-logos">
           <div>
             <a class="page-logo" href="https://nitdgplug.org" ><img src="{% static 'assets/logo.png' %}"></a>
-            <!-- <span style="font-size: 100px;">|</span> -->
-            <!--               <div class="page-logo" ><img src="./assets/line.png"></div> -->
             <a class="page-logo" href="https://avskr.in" alt="Aavishkar Logo"><img src="{% static 'assets/avskr2.png' %}"></a>
           </div>
         </li>
@@ -62,34 +63,16 @@
         </tr>
       </thead>
       <tbody>
+        {% for player in players %}
         <tr>
-          <td data-title="RANK">1</td>
-          <td data-title="NAME">TIYAS</td>
-          <td data-title="SCORE">1345</td>
-          <td data-title="TIME">11:35</td>
-          <td data-title="BADGES">30</td>
+          <td data-title="RANK">{{ player.rank }} </td>
+          <td data-title="NAME">{{ player.name }}</td>
+          <td data-title="SCORE">{{ player.score }}</td>
+          <td data-title="TIME">{{ player.timestamp }}</td>
+          <!-- Badges not implemented-->
+          <td data-title="BADGES">*</td>
         </tr>
-        <tr>
-          <td data-title="RANK">2</td>
-          <td data-title="NAME">SAUMYA</td>
-          <td data-title="SCORE">1345</td>
-          <td data-title="TIME">11:35</td>
-          <td data-title="BADGES">30</td>
-        </tr>
-        <tr>
-          <td data-title="RANK">3</td>
-          <td data-title="NAME">JAYJEET</td>
-          <td data-title="SCORE">1345</td>
-          <td data-title="TIME">11:35</td>
-          <td data-title="BADGES">30</td>
-        </tr>
-        <tr>
-          <td data-title="RANK">4</td>
-          <td data-title="NAME">ANJALI</td>
-          <td data-title="SCORE">1345</td>
-          <td data-title="TIME">11:35</td>
-          <td data-title="BADGES">30</td>
-        </tr>
+        {% endfor %}
       </tbody>
 
     </div>

@@ -1,6 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+
 <body>
-  <audio autoplay loop="true"> 
+  <audio autoplay loop="true">
     <source src="{% static 'music/home.mp3' %}" />
   </audio>
 
@@ -24,11 +26,13 @@
     <li class="nav-header">Online Treasure Hunt</li>
     <li class="menu-container">
       <input id="menu-toggle" type="checkbox">
-      <label for="menu-toggle" class="menu-button">  
-        <svg class="icon-open" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+      <label for="menu-toggle" class="menu-button">
+        <svg class="icon-open" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+        </svg>
         <svg class="icon-close" viewBox="0 0 100 100">
-          <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z"/>
-        </svg> 
+          <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z" />
+        </svg>
       </label>
       <ul class="menu-sidebar">
         <li><a href="/">Home</a></li>
@@ -36,9 +40,7 @@
         <li><a href="#">Login</a></li>
         <li class="page-logos">
           <div>
-            <a class="page-logo" href="https://nitdgplug.org" ><img src="{% static 'assets/logo.png' %}"></a>
-            <!-- <span style="font-size: 100px;">|</span> -->
-            <!--               <div class="page-logo" ><img src="./assets/line.png"></div> -->
+            <a class="page-logo" href="https://nitdgplug.org"><img src="{% static 'assets/logo.png' %}"></a>
             <a class="page-logo" href="https://avskr.in" alt="Aavishkar Logo"><img src="{% static 'assets/avskr2.png' %}"></a>
           </div>
         </li>
@@ -46,72 +48,32 @@
     </li>
   </ul>
   <!-- Header-End-->
-<!-- 
-<ul id="scene" class="scene unselectable"
-      data-friction-x="0.1"
-      data-friction-y="0.1"
-      data-scalar-x="25"
-      data-scalar-y="15">
-      <li class="layer" data-depth="0.00"></li>
-      <li class="layer" data-depth="0.10"><div class="background"></div></li>
-    </ul> -->
 
-    <div class="container">
-      <div class="section-1">
-        <div class="oth-logo">
-          <img src="{% static 'assets/oth_text3.png' %}">
-        </div>
+  <div class="container">
+    <div class="section-1">
+      <div class="oth-logo">
+        <img src="{% static 'assets/oth_text3.png' %}">
       </div>
-      <div class="section-2">
-        <div class="oth-rules">
-          <h1>Rules:</h1>
-          <ul>
-            <li>You will be facing several challenging levels. The answer to a level may be a single word, multiword or digits.</li>
-            <li>Make sure you type in all the answers in lowercase characters without any space between the words.</li>
-            <li>Try to correlate hints provided in the tilte, slug, image and page source to find your way to answer.</li>
-            <li>Stay in touch with our official page which may help you in case you get stuck on any of the levels.</li>
-          </ul>
-          <div class = "sign-in_btns">
-            <h1>Register Here:</h1>
-            <div id="my-signin2">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <script>
-        const bg = document.querySelector('.background-image');
-        const windowWidth = window.innerWidth / 5;
-        const windowHeight = window.innerHeight / 5 ;
-
-        bg.addEventListener('mousemove', (e) => {
-          const mouseX = e.clientX / windowWidth;
-          const mouseY = e.clientY / windowHeight;
-          
-          bg.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
-        });
-        function onSuccess(googleUser) {
-          console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-        }
-        function onFailure(error) {
-          console.log(error);
-        }
-        function renderButton() {
-          gapi.signin2.render('my-signin2', {
-            'scope': 'profile email',
-            'width': 240,
-            'height': 50,
-            'longtitle': true,
-            'theme': 'dark',
-            'onsuccess': onSuccess,
-            'onfailure': onFailure
-          });
-        }
-      </script>
-      <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </div>
+    <div class="section-2">
+      <div class="oth-rules">
+        <h1>Rules:</h1>
+        <ul>
+          <li>You will be facing several challenging levels. The answer to a level may be a single word, multiword or
+            digits.</li>
+          <li>Make sure you type in all the answers in lowercase characters without any space between the words.</li>
+          <li>Try to correlate hints provided in the tilte, slug, image and page source to find your way to answer.</li>
+          <li>Stay in touch with our official page which may help you in case you get stuck on any of the levels.</li>
+        </ul>
+        <div class="sign-in_btns">
+          <h1>Register Here:</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  </div>
+</body>
 
-  </body>
-  </html>
-  
+</html>
+

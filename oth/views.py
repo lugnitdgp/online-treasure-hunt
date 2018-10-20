@@ -7,8 +7,6 @@ from oth import models
 import datetime
 import json
 
-def landing(request):
-    return render(request, 'landing.html')
 
 def index(request):
 
@@ -55,7 +53,6 @@ def answer(request):
     
     m_level = models.total_level.objects.get(id=1)
     lastlevel = m_level.totallevel
-    # print(lastlevel)
 
     ans = ""
     if request.method == 'POST':
@@ -67,10 +64,8 @@ def answer(request):
         if player.current_level > lastlevel:
             return render(request, 'win.html', {'player': player})
         return render(request, 'finish.html', {'player': player})
-    # print answer
-    # print level.answer
+
     if ans == level.answer:
-        #print level.answer
         player.current_level = player.current_level + 1
         player.score = player.score + 10
         player.timestamp = datetime.datetime.now()
@@ -90,7 +85,6 @@ def answer(request):
             return render(request, 'finish.html', {'player': player})
     elif ans=="":
         pass 
-        # messages.error(request, "Please enter answer!")
 
     else:
         level.wrong = level.wrong + 1
@@ -101,6 +95,8 @@ def answer(request):
     return render(request, 'question2.html', {'player': player, 'level': level})
 
 
+
+# Leaderboard view
 def lboard(request):
     p = models.player.objects.order_by('-score','timestamp')
     cur_rank = 1
@@ -109,8 +105,14 @@ def lboard(request):
         pl.rank = cur_rank
         cur_rank += 1
 
+    if request.user.is_authenticated:
+        player = models.player.objects.get(user_id=request.user.pk)
+        return render(request , 'leaderboard.html' , {'players':p,'player':player})
     return render(request, 'leaderboard.html', {'players': p})
 
+
+# Rules View
+# TODO 
 def rules(request):
     return render(request, 'index.html')
 
