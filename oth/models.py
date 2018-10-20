@@ -14,7 +14,7 @@ class player(models.Model):
         return self.name
 
 class level(models.Model):
-    l_number = models.IntegerField()
+    l_number = models.IntegerField(default=1)
     image = models.ImageField(upload_to = 'images',default='images/level1.jpg')
     audio = models.FileField(upload_to = 'audios',default='audios/default.mp3')
     text = models.TextField()
