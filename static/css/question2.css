@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Rancho|Aclonica');
+
+html,body{
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  margin: 0 auto;
+  overflow: auto;
+  display: flex;
+  flex-direction : row;
+  background:url('../assets/quebg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Aclonica;
+}
+
+*, *:before, *:after { box-sizing: border-box; }
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 80vw;
+  padding-top: 45px;
+  margin: 0 auto;
+}
+
+.question-background{
+  padding:20px;
+  width: 100%;
+  height: 80%;
+}
+.question-box{
+  padding:5%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hint{
+  margin: 5vh auto;
+  width: 80%;
+}
+
+
+input[type=text] {
+  width: 40%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+  font-family: Aclonica;
+}
+
+input[type=submit] {
+    background-color: #654321;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    font-family: Aclonica;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+}
+.text{
+  color: black;
+  font-weight: bold;
+}
+
+/* @media only screen and (max-width : 470px){
+  .question-div{
+    background: url('../assets/qf4.png');
+    height: 100%;
+    width: 100%;
+    font-size: 13px;
+    padding-top: 6vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 1vh auto 1vh auto;
+    background-position: center;
+    background-attachment: inherit;
+    text-align: center;
+  }
+} */
+
+
+@media only screen and (max-width: 700px){
+
+  .container{
+    width: 80%;
+  }
+
+  .hint{
+    justify-self: center;
+    align-self: center;
+    margin: 5vh auto;
+    text-align: center;
+  }
+
+  input[type=text]{
+    width: 80%;
+  }
+}
+
+

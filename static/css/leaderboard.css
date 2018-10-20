@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Rancho');
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body{
+  background: url("../assets/leaderboardback.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.heading{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 80vw;
+  padding-top: 45px;
+  margin: 0 auto;
+}
+
+ h1{
+  display: flex;
+  font-size: 5vh;
+  color: red;
+  font-family: Rancho;
+}
+
+table tr td,table tr td{
+  text-align: center;
+  font-family: Rancho;
+  color: white;
+  font-size: 25px;
+  background-color: rgba(205,255,255,0.1)
+}
+thead tr{
+  font-family: Rancho;
+  color: #ffb90c;
+  font-size: 27px;
+  background-color: rgba(56,255,255,0.1)
+}
+/*@media only screen and (max-width: 700px){
+  table,head,tbody,th,td,tr{
+    display: block;
+  }
+  thead tr{
+    display: none;
+  }
+  tr{
+    border: 1px solid #ccc;
+  }
+  td{
+    border: none;
+    border-bottom: 1px solid #eee
+    background-position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: left;
+    min-height: 30px;
+    /*overflow: hidden;*/
+    /*word-break: break-all;
+  }
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  td:before {
+    content: attr(data-title);
+  }
+}

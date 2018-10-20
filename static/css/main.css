@@ -1,0 +1,48 @@
+
+.parallax {
+	width: 100vw;
+	height: 100vh;
+}
+
+
+.layer {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+.layer {
+  position: absolute; }
+  .layer div {
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden; }
+
+.wave {
+  background: transparent repeat-x;
+  position: absolute;
+  width: 300%;
+  left: -100%; }
+  .wave:after {
+    /*background-color: #000000;*/
+    position: absolute;
+    display: block;
+    content: "";
+    height: 500px;
+    width: 100%;
+    top: 100%;
+    left: 0; }
+  .wave.plain {
+    background-image: url(img/wave-plain.png); }
+  .wave.paint {
+    background-image: url(img/wave-paint.png); }
+    
+
+

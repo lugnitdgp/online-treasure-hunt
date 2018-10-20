@@ -20,13 +20,13 @@ def index(request):
         player = models.player.objects.get(user_id=request.user.pk)
         try:
             level = models.level.objects.get(l_number=player.current_level)
-            return render(request, 'level.html', {'player': player, 'level': level})
+            return render(request, 'question2.html', {'player': player, 'level': level})
         except models.level.DoesNotExist:
             if player.current_level > lastlevel:
                 return render(request, 'win.html', {'player': player})
             return render(request, 'finish.html', {'player': player})
 
-    return render(request, 'index_page.html')
+    return render(request, 'index.html')
 
 
 def save_profile(backend, user, response, *args, **kwargs):
@@ -83,7 +83,7 @@ def answer(request):
             level = models.level.objects.get(l_number=player.current_level)
             return render(request, 'level_transition.html')
 
-            return render(request, 'level.html', {'player': player, 'level': level})
+            return render(request, 'question2.html', {'player': player, 'level': level})
         except:
             if player.current_level > lastlevel:
                 return render(request, 'win.html', {'player': player}) 
@@ -98,7 +98,7 @@ def answer(request):
 
         messages.error(request, "Wrong Answer!, Try Again")
 
-    return render(request, 'level.html', {'player': player, 'level': level})
+    return render(request, 'question2.html', {'player': player, 'level': level})
 
 
 def lboard(request):
@@ -109,10 +109,10 @@ def lboard(request):
         pl.rank = cur_rank
         cur_rank += 1
 
-    return render(request, 'lboard.html', {'players': p})
+    return render(request, 'leaderboard.html', {'players': p})
 
 def rules(request):
-    return render(request, 'index_page.html')
+    return render(request, 'index.html')
 
 
 '''Leaderboard API'''

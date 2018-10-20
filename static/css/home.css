@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Rancho');
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body{
+  background: url("../assets/homebg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+*, *:before, *:after { box-sizing: border-box; }
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 45px;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 50px; */
+}
+.section-1 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+.section-2 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+.oth-logo {
+  display: flex;
+  height: 100%;
+}
+
+.oth-logo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.oth-rules {
+  color: white;
+  font-family: Rancho;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto
+}
+
+/*.background {
+  background: url("../assets/homebg2.jpg") no-repeat left center;
+  bottom: 500px;
+  background-size: cover;
+
+  position: absolute;
+  background-position: center;
+  width: 110%;
+  left: -5%;
+  top: -5%; 
+  }
+  */
+
+  .sign-in_btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .google-small,.facebook-small{
+    display: none;
+  }
+
+  .background-image {
+  width: 110%;
+  height: 110%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("../assets/homebg2.jpg") no-repeat left center / cover;
+}
+
+
+  @media only screen and (max-width: 700px){
+    .container{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .section-1 {
+      display: flex;
+      width: 100%;
+      height: 50%;
+    }
+
+    .section-2 {
+      display: flex;
+      width: 100%;
+      height: 70%;
+    }
+
+    .google,.facebook{
+      display: none;
+    }
+    .google-small{
+      display:flex;
+      margin-left: 5vw;
+      margin-top: -25vh; 
+      background-color:rgba(0,0,0,0);
+      border-radius: 12px;
+    }
+    .facebook-small{
+      display:flex;
+      margin-left:5px;
+      margin-top: -25vh;
+      background-color:rgba(0,0,0,0);
+      border-radius: 12px;
+    }
+  }
