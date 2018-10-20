@@ -28,7 +28,7 @@
         </svg> 
       </label>
       <ul class="menu-sidebar">
-        {% if user and not user.is_anonymous %}
+        {% if user and player and not user.is_anonymous %}
         <li>{{ player.name }}</li>
         {% endif %}
         <li><a href="/">Home</a></li>
