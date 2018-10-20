@@ -37,7 +37,6 @@
       <ul class="menu-sidebar">
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
-        <li><a href="#">Login</a></li>
         <li class="page-logos">
           <div>
             <a class="page-logo" href="https://nitdgplug.org"><img src="{% static 'assets/logo.png' %}"></a>
@@ -66,7 +65,12 @@
           <li>Stay in touch with our official page which may help you in case you get stuck on any of the levels.</li>
         </ul>
         <div class="sign-in_btns">
-          <h1>Register Here:</h1>
+          <h1>Register Here: </h1>
+          <p><a href="{% url 'social:begin' 'google-oauth2' %}" class="btn-lg btn-google"><i class="fa fa-google"></i>
+              | Login with Google</button></p>
+          <p><a href="{% url 'social:begin' 'facebook' %}" class="btn-lg btn-facebook"><i class="fa fa-facebook"></i>
+              | Login with Facebook</button></p>
+
         </div>
       </div>
     </div>

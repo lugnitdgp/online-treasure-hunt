@@ -28,14 +28,14 @@
         </svg> 
       </label>
       <ul class="menu-sidebar">
-        {% if player %}
+        {% if user and not user.is_anonymous %}
         <li>{{ player.name }}</li>
-        {% else %}
-        <li>Login to get yourself on the leaderboard !</li>
         {% endif %}
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
-        <li><a href="#">Logout</a></li>
+        {% if user and not user.is_anonymous %}
+        <li><a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a></li>
+        {% endif %}
         <li class="page-logos">
           <div>
             <a class="page-logo" href="https://nitdgplug.org" ><img src="{% static 'assets/logo.png' %}"></a>
@@ -47,7 +47,7 @@
   </ul>
   <!-- Header-End-->
 
-
+  <!-- Container Start -->
   <div class="container">
     <div class="heading">
       <h1>LEADERBOARD</h1>
@@ -76,6 +76,7 @@
       </tbody>
 
     </div>
+    <!-- Container End -->
 
   </body>
   </html>

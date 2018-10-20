@@ -1,60 +1,60 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Online Treasure Hunt</title>
-    <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
-
-   <!-- <script type='text/javascript' src="./js/parallax.min.js"></script> -->
-
-   <!-- <link rel="stylesheet" type="text/css" href="./css/main.css">  -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/wait.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Online Treasure Hunt</title>
+  <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/wait.css' %}">
 
 </head>
-<body>
-    <div class="page-header">
-        <div class="page-navbar">
-            <a class="page-logo" href="/">
-                <img src="{% static 'assests/logo.png' %}">    
-            </a> 
-            <div class="page-logo">
-              <img src="{% static 'assets/line.png' %}">
-            </div>
-            <a class="page-logo" href="/" alt="Aavishkar Logo">
-                <img src="{% static 'assets/avskr.png' %}">    
-            </a> 
-            <div class='buttons_group'>
-              <a href="/" class="page-navbar-button">
-                <span>HOME</span>
-              </a>
-              <!--<a href="" class="page-navbar-button">
-                <span>LEADERBOARD</span>
-              </a>-->
-              <a href="" class="page-navbar-button">
-                <span>LOGOUT</span>
-              </a>
-            </div>
-        </div>
-    </div>
 
-     <audio autoplay loop="true"> 
-            <source src="{% static 'music/trans.mp4' %}">
-              <source src="{% static 'music/trans.mp3' %}">
+<body>
+  <div class="page-header">
+    <div class="page-navbar">
+      <a class="page-logo" href="/">
+        <img src="{% static 'assets/logo.png' %}">
+      </a>
+      <div class="page-logo">
+        <img src="{% static 'assets/line.png' %}">
+      </div>
+      <a class="page-logo" href="/" alt="Aavishkar Logo">
+        <img src="{% static 'assets/avskr.png' %}">
+      </a>
+      <div class='buttons_group'>
+        <a href="/" class="page-navbar-button">
+          <span>HOME</span>
+        </a>
+        <!-- <a href="/" class="page-navbar-button">
+                <span>LEADERBOARD</span>
+              </a> -->
+        <a href="{% url 'auth:logout' %}?next={{ '/' }}" class="page-navbar-button">
+          <span>LOGOUT</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <audio autoplay loop="true">
+    <source src="{% static 'music/trans.mp4' %}">
+    <source src="{% static 'music/trans.mp3' %}">
   </audio>
 
-    <div class = "container">
-    
-    <div class = "message">
-      <p>You have unlocked the Black Pearl. You are one step closer to controlling the ocean. Please wait to start the next level.</p>
+  <div class="container">
+
+    <div class="message">
+      <p>You have unlocked the Black Pearl. You are one step closer to controlling the ocean. Please wait to start the
+        next level.</p>
     </div>
 
 
-    </div>
+  </div>
 
-  </body>
-  </html>
+</body>
+
+</html>
 

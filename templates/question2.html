@@ -32,7 +32,7 @@
         <li>{{ player.name }}</li>
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a></li>
         <li class="page-logos">
           <div>
             <a class="page-logo" href="https://nitdgplug.org"><img src="{% static 'assets/logo.png' %}"></a>
@@ -59,6 +59,16 @@
       <rect fill="rgba(119, 79, 14, 0.69)" filter="url(#filter)" style="width: 100%;" />
       <!-- Questions -->
       <foreignObject x="0" y="0" class="question-box">
+
+
+          {% block msgblock %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert {% if message.tags %} alert-{% if message.tags == "error" %}danger{% else %}{{ message.tags }}{% endif %}"{% endif %} role="alert">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+          {% endblock %}
+
         <div class="question">
           <p>{{ level.l_number }} . {{ level.text }}</p>
         </div>
@@ -66,7 +76,7 @@
         <!--Audio Hint-->
         <div class="hint">
           <audio controls>
-            <source src="{{ level.audio }}" type="" />
+            <source src="{{ level.audio.url }}" type="" />
             Your browser does not support audio element.
           </audio>
         </div>
@@ -75,8 +85,9 @@
         <h4>Write your answer here : </h4>
 
         <!-- Answer Division -->
-        <form>
-          <input type="text" name="Answer" placeholder="Enter answer" />
+        <form id="ans" method="POST" action="/answer/">
+          {% csrf_token %}
+          <input type="text" name="ans" placeholder="Enter answer" />
           <br />
           <br />
           <input type="submit" value="Submit" />
@@ -84,8 +95,6 @@
       </foreignObject>
     </svg>
     <!-- Question Box End -->
-
-
 
     <!-- Stats Division -->
     <div class="text">

@@ -22,7 +22,7 @@ def index(request):
         except models.level.DoesNotExist:
             if player.current_level > lastlevel:
                 return render(request, 'win.html', {'player': player})
-            return render(request, 'finish.html', {'player': player})
+            return render(request, 'wait.html', {'player': player})
 
     return render(request, 'index.html')
 
@@ -63,7 +63,7 @@ def answer(request):
     except models.level.DoesNotExist:
         if player.current_level > lastlevel:
             return render(request, 'win.html', {'player': player})
-        return render(request, 'finish.html', {'player': player})
+        return render(request, 'wait.html', {'player': player})
 
     if ans == level.answer:
         player.current_level = player.current_level + 1
@@ -82,9 +82,10 @@ def answer(request):
         except:
             if player.current_level > lastlevel:
                 return render(request, 'win.html', {'player': player}) 
-            return render(request, 'finish.html', {'player': player})
+            return render(request, 'wait.html', {'player': player})
     elif ans=="":
         pass 
+        messages.error(request , "Please enter an answer !")
 
     else:
         level.wrong = level.wrong + 1
