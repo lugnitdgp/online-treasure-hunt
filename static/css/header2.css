@@ -111,7 +111,7 @@
   width: 65vw;
   bottom: 0;
   background: #ffec8cd6;
-  color: #333;
+  /* color: #333; */
   position: fixed;
   transform: translateX(-405px);
   transition: transform 0.3s cubic-bezier(0, 0, 0.3, 1);

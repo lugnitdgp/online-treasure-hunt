@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['oth2.pythonanywhere.com','192.168.1.102']
+ALLOWED_HOSTS = ['oth2.pythonanywhere.com','192.168.1.102','localhost']
 
 
 # Application definition
