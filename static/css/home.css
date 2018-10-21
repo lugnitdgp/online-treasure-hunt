@@ -7,6 +7,7 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 body{
   background: url("../assets/homebg2.jpg");
   background-size: cover;
@@ -57,27 +58,33 @@ body{
   margin: auto
 }
 
-/*.background {
-  background: url("../assets/homebg2.jpg") no-repeat left center;
-  bottom: 500px;
-  background-size: cover;
-
-  position: absolute;
-  background-position: center;
-  width: 110%;
-  left: -5%;
-  top: -5%; 
-  }
-  */
-
   .sign-in_btns {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
   }
 
-  .google-small,.facebook-small{
-    display: none;
+  .google{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 20px;
+    border: 0;
+    font-size: 20px;
+    box-shadow: 5px;
+    color: #fff;
+    margin: 3px;
+  }
+
+  .facebook{
+    background-color: blue;
+    border-radius: 5px;
+    padding: 20px;
+    border: 0;
+    font-size: 20px;
+    box-shadow: 5px;
+    color: #fff;
+    margin: 3px;
   }
 
   .background-image {
@@ -112,21 +119,25 @@ body{
       height: 70%;
     }
 
-    .google,.facebook{
-      display: none;
+    .sign-in_btns {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .google-small{
-      display:flex;
-      margin-left: 5vw;
-      margin-top: -25vh; 
-      background-color:rgba(0,0,0,0);
-      border-radius: 12px;
-    }
-    .facebook-small{
-      display:flex;
-      margin-left:5px;
-      margin-top: -25vh;
-      background-color:rgba(0,0,0,0);
-      border-radius: 12px;
-    }
+    
+  .google{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
   }
+
+  .facebook{
+    background-color: blue;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+  }
+}
+
