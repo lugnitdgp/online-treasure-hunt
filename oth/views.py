@@ -112,8 +112,7 @@ def lboard(request):
     return render(request, 'leaderboard.html', {'players': p})
 
 
-# Rules View
-# TODO 
+# Rules View 
 def rules(request):
     return render(request, 'index.html')
 
