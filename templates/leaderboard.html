@@ -33,6 +33,7 @@
         {% endif %}
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
+        <li><a href="/rules">Rules</a></li>
         {% if user and not user.is_anonymous %}
         <li><a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a></li>
         {% endif %}

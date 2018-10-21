@@ -36,6 +36,7 @@
       <ul class="menu-sidebar">
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
+        <li><a href="/rules">Rules</a></li>
         <li class="page-logos">
           <div>
             <a class="page-logo" href="https://nitdgplug.org"><img src="{% static 'assets/logo.png' %}"></a>
@@ -55,6 +56,16 @@
     </div>
     <div class="section-2">
       <div class="oth-rules">
+        {% if request.get_full_path == '/rules/' %}
+        <h1>Rules:</h1>
+        <ul>
+          <li>You will be facing several challenging levels. The answer to a level may be a single word, multiword or
+            digits.</li>
+          <li>Make sure you type in all the answers in lowercase characters without any space between the words.</li>
+          <li>Try to correlate hints provided in the tilte, slug, image and page source to find your way to answer.</li>
+          <li>Stay in touch with our official page which may help you in case you get stuck on any of the levels.</li>
+        </ul>
+        {% elif request.get_full_path == '/' %}
         <h1>Rules:</h1>
         <ul>
           <li>You will be facing several challenging levels. The answer to a level may be a single word, multiword or
@@ -72,6 +83,9 @@
               class="sign-in_btns google"><i class="fa fa-google"></i> | Login with Google</button></p>
 
         </div>
+        {% endif %}
+
+
       </div>
     </div>
   </div>
@@ -80,5 +94,4 @@
 </body>
 
 </html>
-
 
