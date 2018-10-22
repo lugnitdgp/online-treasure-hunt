@@ -127,8 +127,9 @@ def leaderboard_api(request):
     for pl in p:
         pl.rank = cur_rank
         players_array.append({
-            'rank':pl.rank,
             'name':pl.name,
+            'rank':pl.rank,
+            'email':'',
             'score':pl.score,
         })
         cur_rank += 1
