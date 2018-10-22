@@ -40,8 +40,11 @@ html,body{
 }
 
 .hint{
+  text-align: center;
   margin: 5vh auto;
   width: 80%;
+  /*addition*/
+  align-self: center;
 }
 
 
@@ -95,6 +98,9 @@ input[type=submit] {
   .hint{
     justify-self: center;
     align-self: center;
+    justify-content: center;
+    align-items: center;
+    width: auto;
     margin: 5vh auto;
     text-align: center;
   }
