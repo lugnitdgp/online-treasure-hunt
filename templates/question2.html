@@ -74,17 +74,24 @@
           <p>{{ level.l_number }} . {{ level.text }}</p>
         </div>
 
+        {% if level.image.url != '/media/images/default.jpg' %}
         <div class="image">
           <img src="{{ level.image.url }}" width="200px"/>
         </div>
+        {% endif %}
 
         <!--Audio Hint-->
+        
+        {%if level.audio.url != '/media/audios/default.mp3' %}
+
         <div class="hint">
           <audio controls>
             <source src="{{ level.audio.url }}" type="" />
             Your browser does not support audio element.
           </audio>
         </div>
+
+        {% endif %}
 
 
         <h4>Write your answer here : </h4>
