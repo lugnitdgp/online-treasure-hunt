@@ -21,7 +21,7 @@
     Loading...
   </div>
   <div style="display:none;" class="main">
-  <audio autoplay loop="true">
+  <audio id="bg-audio" autoplay loop="true">
     <source src="{% static 'music/home.mp3' %}" />
   </audio>
 
@@ -42,7 +42,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
         <li><a href="/rules">Rules</a></li>
-        <li>Mute Audio</li>
+        <li><button onclick="toggleAudio()">Mute music !</button></li>
         <li class="page-logos">
           <div>
             <a class="page-logo" href="https://nitdgplug.org"><img src="{% static 'assets/logo.png' %}"></a>
@@ -103,6 +103,11 @@
     $('.preloader').css('display','none');
     $('.main').css('display','block');
   });
+
+  function toggleAudio(){
+    var audio = document.getElementById("bg-audio");
+    audio.muted = !audio.muted;
+  }
   </script>
 </body>
 
