@@ -85,10 +85,8 @@
         {%if level.audio.url != '/media/audios/default.mp3' %}
 
         <div class="hint">
-          <audio controls>
-            <source src="{{ level.audio.url }}" type="" />
-            Your browser does not support audio element.
-          </audio>
+          <audio src="{{ level.audio.url }}" id="audio"/>
+          <button onclick="playMusic()">Play Audio</button>
         </div>
 
         {% endif %}
@@ -118,6 +116,13 @@
       </div>
     </div>
   </div>
+
+<script>
+  function playMusic(){
+    var audio = document.getElementById('audio');
+    audio.play();
+  }
+</script>
 
 </body>
 
