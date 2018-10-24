@@ -69,6 +69,7 @@ body{
 }
 
   .sign-in_btns {
+    /* display: flex; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -84,6 +85,8 @@ body{
     box-shadow: 5px;
     color: #fff;
     margin: 3px;
+    box-shadow: 0 10px 10px rgba(31, 31, 31, 0.5);
+
   }
 
   .facebook{
@@ -95,6 +98,8 @@ body{
     box-shadow: 5px;
     color: #fff;
     margin: 3px;
+    box-shadow: 0 10px 10px rgba(31, 31, 31, 0.5);
+
   }
 
   .background-image {
@@ -112,7 +117,9 @@ body{
       display: flex;
       flex-direction: column;
       height: 100vh;
+      overflow-y: scroll;
       width: 100vw;
+      text-align: center;
       align-items: center;
       justify-content: center;
 
@@ -137,17 +144,25 @@ body{
     }
     
   .google{
+    display: flex;
+    flex-direction: row;
     background-color: orangered;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     color: #fff;
+    box-shadow: 0 10px 10px rgba(31, 31, 31, 0.5);
+
   }
 
   .facebook{
+    display: flex;
+    flex-direction: row;
     background-color: blue;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     color: #fff;
+    box-shadow: 0 10px 10px rgba(31, 31, 31, 0.5);
+
   }
 }
 
