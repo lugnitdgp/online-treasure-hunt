@@ -21,14 +21,18 @@ html, body {
 
 
 body{
-  background: url("../assets/ship2.gif");
+  /* background: url("../assets/ship2.gif");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 
 }
 .container{
   display: flex;
+  background: url("../assets/ship2.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   flex-direction: column;
    height: 80vh;
     width: 40vw;
