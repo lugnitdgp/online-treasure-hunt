@@ -27,6 +27,13 @@ html, body {
 }
 /*************/
 
+.audio-toggle-button{
+  padding: 5px;
+  border: 0;
+  background: brown;
+  color: white;
+  border-radius: 5px;
+}
 
 body{
   background: url("../assets/homebg2.jpg");

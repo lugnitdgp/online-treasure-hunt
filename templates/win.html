@@ -43,7 +43,7 @@
         <li>{{ player.name }}</li>
         <li><a href="/lboard">LeaderBoard</a></li>
         <li><a href="/rules">Rules</a></li>
-        <li><button onclick="toggleAudio()">Mute music !</button></li>
+        <li><button class="audio-toggle-button" onclick="toggleAudio()">Toggle music !</button></li>
         <li><a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a></li>
         <li class="page-logos">
           <div>
