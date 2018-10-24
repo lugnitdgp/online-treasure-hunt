@@ -105,7 +105,7 @@ input[type=submit] {
 @media only screen and (max-width: 700px){
 
   .container{
-    width: 80%;
+    width: 95%;
   }
 
   .hint{
