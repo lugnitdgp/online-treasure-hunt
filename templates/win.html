@@ -15,8 +15,12 @@
 
 <body>
 
-  <!-- Header-Start -->
-  <ul class="nav-mobile">
+  <div style="display:block;" class="preloader">
+    Loading...
+  </div>
+  <div style="display:none;" class="main">
+    <!-- Header-Start -->
+    <ul class="nav-mobile">
       <li class="nav-header">Online Treasure Hunt</li>
       <li class="menu-container">
         <input id="menu-toggle" type="checkbox">
@@ -44,21 +48,27 @@
       </li>
     </ul>
     <!-- Header-End-->
-  
-  <audio autoplay loop="true">
-    <source src="{% static 'music/trans.mp4' %}">
-    <source src="{% static 'music/trans.mp3' %}">
-  </audio>
 
-  <div class="container">
+    <audio autoplay loop="true">
+      <source src="{% static 'music/trans.mp4' %}">
+      <source src="{% static 'music/trans.mp3' %}">
+    </audio>
 
-    <div class="message">
-      <p>Congratulations !! You are the pirate !.</p>
+    <div class="container">
+
+      <div class="message">
+        <p>Congratulations !! You are the pirate !.</p>
+      </div>
+
+
     </div>
-
-
   </div>
-
+  <script>
+    $(window).on('load', function () {
+      $('.preloader').css('display', 'none');
+      $('.main').css('display', 'block');
+    });
+  </script>
 </body>
 
 </html>

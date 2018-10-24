@@ -16,7 +16,11 @@
 
 <body>
 
+  <div style="display:block;" class="preloader">
+    Loading...
+  </div>
   <!-- Header-Start -->
+  <div style="display:none;" class="main">
   <ul class="nav-mobile">
     <li class="nav-header">Online Treasure Hunt</li>
     <li class="menu-container">
@@ -118,8 +122,13 @@
       </div>
     </div>
   </div>
+  </div>
 
   <script>
+    $(window).on('load', function () {
+      $('.preloader').css('display', 'none');
+      $('.main').css('display', 'block');
+    });
     var isPlaying = false;
     function playMusic() {
 
@@ -137,4 +146,3 @@
 </body>
 
 </html>
-

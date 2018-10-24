@@ -15,6 +15,10 @@
 
 <body>
 
+  <div style="display:block;" class="preloader">
+    Loading...
+  </div>
+  <div style="display:none;" class="main">
   <!-- Header-Start -->
   <ul class="nav-mobile">
     <li class="nav-header">Online Treasure Hunt</li>
@@ -60,8 +64,15 @@
 
 
   </div>
-
+  </div>
+  <script>
+    $(window).on('load', function () {
+      $('.preloader').css('display', 'none');
+      $('.main').css('display', 'block');
+    });
+  </script>
 </body>
 
 </html>
+
 

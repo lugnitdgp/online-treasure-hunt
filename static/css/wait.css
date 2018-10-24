@@ -8,6 +8,18 @@ html, body {
   background-size: cover;
 
 }
+
+
+.preloader{
+  text-align: center;
+  font-size: 40px;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  vertical-align:center;
+}
+
+
 body{
   background: url("../assets/ship2.gif");
   background-size: cover;
