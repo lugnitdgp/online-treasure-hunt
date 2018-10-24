@@ -19,10 +19,10 @@ html, body {
 
 
 body{
-  /* background: url("../assets/homebg2.jpg");
+  background: url("../assets/homebg2.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
 *, *:before, *:after { box-sizing: border-box; }
 .container {
@@ -33,11 +33,6 @@ body{
   padding-top: 45px;
   align-items: center;
   justify-content: center;
-
-  background: url("../assets/homebg2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   /* margin-top: 50px; */
 }
 .section-1 {
