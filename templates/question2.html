@@ -11,10 +11,22 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/question2.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script>
+    window.addEventListener("load", function (event) {
+      var element = document.getElementById("preloader");
+      element.parentNode.removeChild(element);
+      $('body').removeClass('preloader-active');
+      $('#preloader').fadeOut(1000);
+    });
+  </script>
 </head>
 
-<body>
+<body class="preloader-active">
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="{% static 'assets/ship_load.gif' %}" />
+  </div>
+  <!--  -->
   <ul class="nav-mobile">
     <li class="nav-header">Online Treasure Hunt</li>
     <li class="menu-container">
@@ -133,4 +145,3 @@
 </body>
 
 </html>
-

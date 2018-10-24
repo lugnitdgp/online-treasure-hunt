@@ -10,10 +10,22 @@
   <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/wait.css' %}">
-
+  <script>
+    window.addEventListener("load", function (event) {
+      var element = document.getElementById("preloader");
+      element.parentNode.removeChild(element);
+      $('body').removeClass('preloader-active');
+      $('#preloader').fadeOut(1000);
+    });
+  </script>
 </head>
 
-<body>
+<body class="preloader-active">
+  <!-- Preloader -->
+  <div id="preloader">
+      <img src="{% static 'assets/ship_load.gif' %}" />
+    </div>
+    <!--  -->
   <!-- Header-Start -->
   <ul class="nav-mobile">
     <li class="nav-header">Online Treasure Hunt</li>
@@ -68,4 +80,3 @@
 </body>
 
 </html>
-
