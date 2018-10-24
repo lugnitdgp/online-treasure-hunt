@@ -8,6 +8,13 @@ html, body {
   background-size: cover;
 }
 
+.preloader{
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+
+
 body{
   background: url("../assets/homebg2.jpg");
   background-size: cover;
