@@ -39,7 +39,6 @@
         {% if user and player and not user.is_anonymous %}
         <li>{{ player.name }}</li>
         {% endif %}
-        <li><a href="/">Home</a></li>
         <li><a href="/lboard">LeaderBoard</a></li>
         <li><a href="/rules">Rules</a></li>
         {% if user and not user.is_anonymous %}
