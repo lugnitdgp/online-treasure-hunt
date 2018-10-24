@@ -121,8 +121,10 @@ input[type=submit] {
 }
 
 .audio-btn{
+  padding: 5px;
   border: none;
   background: brown;
   color: white;
-  border-radius: 2px;
+  border-radius: 5px;
 }
+
