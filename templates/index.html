@@ -16,6 +16,10 @@
 </head>
 
 <body>
+
+  <div  class="preloader">
+    Loading...
+  </div>
   <audio autoplay loop="true">
     <source src="{% static 'music/home.mp3' %}" />
   </audio>
@@ -91,6 +95,11 @@
   </div>
 
   </div>
+  <script>
+  $(window).on('load', function() {
+    $('.preloader').fadeOut('slow');
+  });
+  </script>
 </body>
 
 </html>
