@@ -109,10 +109,10 @@ input[type=submit] {
   }
 
   .hint{
-    justify-self: center;
+    /* justify-self: center; */
     align-self: center;
-    margin: 5vh auto;
-    text-align: center;
+    margin:2vh auto;
+    /* text-align: center; */
   }
 
   input[type=text]{
@@ -120,3 +120,9 @@ input[type=submit] {
   }
 }
 
+.audio-btn{
+  border: none;
+  background: brown;
+  color: white;
+  border-radius: 2px;
+}
