@@ -46,12 +46,12 @@ body{
 }
 .container{
   display: flex;
-  flex-direction: column;
-   height: 80vh;
-    width: 40vw;
-    margin-left: 2vw;
-    margin-top: 10vh;
+  flex-direction: row; /* changed from column */
+   height: 90vh;
+    width: 90vw;
+    margin: 8vh auto 5vh auto;
     overflow: auto;
+    /* -ms-scrollbar-base-color: transparent; */
     background-color: rgba(0,0,0,0.2);
     padding: 4vh  ;
    }
@@ -60,7 +60,21 @@ body{
     color: yellow;
     font-size: 5vh;
    }
-   @media only screen and (max-width: 600px){
+
+  .story-text{
+    order: 2;
+    width: 70vw;
+    padding: 2vw;
+    flex-direction: row;
+  }
+
+  .pirate-imgs{
+    order: 1;
+    width: 30vw;
+    flex-direction:row;
+  }
+
+@media only screen and (max-width: 1024px){
     body{
   background: url("../assets/ship2.gif");
   background-size: cover;
@@ -70,12 +84,13 @@ body{
   .container{
   display: flex;
   flex-direction: column;
-   height: 80vh;
-    width: 80vw;
-    margin-left: 2vw;
-    margin-top: 10vh;
+   height: 90vh;
+    width: 95vw;
+    margin: 8vh auto 5vh auto;
     overflow: auto;
     background-color: rgba(0,0,0,0.2);
-    padding: 4vh  ;
+    padding: 4vh;
    }
 }
+
+
