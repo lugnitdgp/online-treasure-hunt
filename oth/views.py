@@ -83,15 +83,15 @@ def answer(request):
             if player.current_level > lastlevel:
                 return render(request, 'win.html', {'player': player}) 
             return render(request, 'wait.html', {'player': player})
-    elif ans=="":
+    elif ans=="" and request.method == 'POST':
         pass 
         messages.error(request , "Please enter an answer !")
 
     else:
-        level.wrong = level.wrong + 1
-        level.save()
-
-        messages.error(request, "Wrong Answer!, Try Again")
+        if request.method == 'POST':
+            level.wrong = level.wrong + 1
+            level.save()
+            messages.error(request, "Wrong Answer!, Try Again")
 
     return render(request, 'question2.html', {'player': player, 'level': level})
 
