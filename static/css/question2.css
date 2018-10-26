@@ -85,6 +85,9 @@ html,body{
   width: 80%;
 }
 
+.image{
+  border-radius: 5px;
+}
 
 input[type=text] {
   width: 40%;
