@@ -200,7 +200,7 @@
   padding-left: 0 !important;
   height: 120px !important;
   line-height: 120px !important;
-  background-color: #eee;
+  background-color:#ffec8cd6;
   padding-top: 10px;
 }
 
@@ -224,3 +224,4 @@
     max-height: 100%;
     max-width: 100%;
 }
+
