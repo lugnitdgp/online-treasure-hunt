@@ -7,6 +7,9 @@ from oth import models
 import datetime
 import json
 
+def landing(request):
+    return render(request , 'countdown.html')
+
 
 def index(request):
 

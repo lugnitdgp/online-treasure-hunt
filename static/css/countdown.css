@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Mali');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Mali');
+
+body{
+    background: url('../assets/landing.jpg');
+}
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.timer{
+    font-size: 100px;
+    color: #fff;
+    font-family: 'Baloo Bhaijaan', cursive;
+}
+
+.desc {
+    font-size:30px;
+    margin: 10px auto;
+    color: #fff;
+    font-family: 'Mali',cursive;
+}
+
+.countdown img{
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    float: left;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .timer{
+        font-size: 80px;
+        color: #fff;
+        font-family: 'Baloo Bhaijaan', cursive;
+    }
+
+    .desc{
+        font-size: 20px;
+        color: #fff;
+        margin: 10px auto;
+        font-family: 'Mali' , cursive;
+    }
+}
+

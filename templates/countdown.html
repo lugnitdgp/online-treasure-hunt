@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Online Treasure Hunt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/countdown.css' %}" />
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/countdown.js' %}"></script>
+</head>
+
+<body>
+    <div class="countdown">
+        <img src="{% static 'assets/avskr.png' %}">
+        <p class="timer" countdown>Oct 31 2018 23:59:59</p>
+        <p class="desc">Online Treasure Hunt starts on 31st October , 2018 at 10:00 pm</p>
+    </div>
+</body>
+
+</html>
+
+
