@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Mali');
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Mali');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Kodchasan');
+
 
 body{
     background: url('../assets/landing.jpg');
@@ -14,7 +17,7 @@ body{
 .timer{
     font-size: 100px;
     color: #fff;
-    font-family: 'Baloo Bhaijaan', cursive;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .desc {
@@ -36,9 +39,10 @@ body{
 
 @media only screen and (max-width: 600px) {
     .timer{
-        font-size: 80px;
+        font-size: 35px;
         color: #fff;
-        font-family: 'Baloo Bhaijaan', cursive;
+        font-family: 'Kodchasan', sans-serif;
+        margin-bottom: 10vh;
     }
 
     .desc{
