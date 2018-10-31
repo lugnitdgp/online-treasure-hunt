@@ -149,6 +149,6 @@ def leaderboard_api(request):
         })
         cur_rank += 1
 
-    return JsonResponse(players_array)
+    return JsonResponse(players_array,safe=False)
 
     
