@@ -1,0 +1,12 @@
+<svg class="question-background">
+      <defs>
+        <filter id="filter">
+          <feTurbulence baseFrequency="0.12" numOctaves="2" type="fractalNoise" result="result1" />
+          <feDisplacementMap in2="result1" scale="99" result="result2" xChannelSelector="R" in="SourceGraphic" />
+          <feComposite in2="result2" in="SourceGraphic" operator="atop" result="fbSourceGraphic" />
+        </filter>
+      </defs>
+      <rect  x="0" y="0" width="100%" height="100%" fill="rgba(119, 79, 14, 0.69)" filter="url(#filter)" class="question-rect"  />
+    </svg> 
+   
+   
