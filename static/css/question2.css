@@ -161,6 +161,22 @@ input[type=submit] {
   input[type=text]{
     width: 80%;
   }
+
+  
+.question-box{
+  padding: 25px;
+  width: 90vw;
+  margin : 10px auto 0 auto;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  -ms-overflow-style: none;
+  background-image: url("../assets/question_bg.png");
+  background-position: center;
+  background-size: cover;
+}
+
 }
 
 .audio-btn{
