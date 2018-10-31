@@ -10,6 +10,8 @@
   color: #fff;
 }
 
+p { word-break: break-all }
+
 .layer {
   display: block;
   height: 100%;

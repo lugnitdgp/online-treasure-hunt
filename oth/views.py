@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import models
@@ -21,13 +21,25 @@ def index(request):
         player = models.player.objects.get(user_id=request.user.pk)
         try:
             level = models.level.objects.get(l_number=player.current_level)
-            return render(request, 'question2.html', {'player': player, 'level': level})
+            print(request.path)
+            print(level.l_number)
+            if request.path == '/home/' or level.l_number > 1:
+                return render(request, 'question2.html', {'player': player, 'level': level})
+            else:
+                return redirect('story')
         except models.level.DoesNotExist:
             if player.current_level > lastlevel:
                 return render(request, 'win.html', {'player': player})
             return render(request, 'wait.html', {'player': player})
 
     return render(request, 'index.html')
+
+
+def story(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story.html')
 
 
 def save_profile(backend, user, response, *args, **kwargs):

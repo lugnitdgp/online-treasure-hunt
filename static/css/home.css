@@ -35,6 +35,8 @@ html, body {
   border-radius: 5px;
 }
 
+p { word-break: break-all }
+
 body{
   background: url("../assets/homebg2.jpg");
   background-size: cover;

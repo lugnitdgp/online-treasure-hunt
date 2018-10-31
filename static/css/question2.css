@@ -43,6 +43,7 @@ html,body{
 }
 /*************/
 
+p { word-break: break-all }
 
 *, *:before, *:after { box-sizing: border-box; }
 .container {
