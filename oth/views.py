@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect , JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import models
 from django.contrib import messages
@@ -149,6 +149,6 @@ def leaderboard_api(request):
         })
         cur_rank += 1
 
-    return HttpResponse(json.dumps(players_array))
+    return JsonResponse(players_array)
 
     
