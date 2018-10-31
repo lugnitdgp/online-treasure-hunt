@@ -72,7 +72,8 @@ table tr td,table tr td{
   font-family: Rancho;
   color: white;
   font-size: 25px;
-  background-color: rgba(205,255,255,0.1)
+  /* background-color: rgba(205,255,255,0.1) */
+  background-color: rgba(33, 33, 33, 0.8);
 }
 thead tr{
   font-family: Rancho;
