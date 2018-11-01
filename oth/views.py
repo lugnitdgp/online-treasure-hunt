@@ -25,7 +25,7 @@ def index(request):
             print(level.l_number)
             if request.path == '/home/' or level.l_number > 1 or level.l_number > 11:
                 return render(request, 'question2.html', {'player': player, 'level': level})
-            elif level.l_number == 11 and lastlevel == 20:
+            elif level.l_number == 11 and lastlevel == 18:
                 return redirect('story2')
             else:
                 return redirect('story')
