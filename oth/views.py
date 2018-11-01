@@ -31,7 +31,7 @@ def index(request):
                 return redirect('story')
         except models.level.DoesNotExist:
             if player.current_level > lastlevel:
-                # changes from win to wait
+                # changes from win to wait toggled
                 return render(request, 'wait.html', {'player': player})
             return render(request, 'wait.html', {'player': player})
 
@@ -80,7 +80,8 @@ def answer(request):
         level = models.level.objects.get(l_number=player.current_level)
     except models.level.DoesNotExist:
         if player.current_level > lastlevel:
-            return render(request, 'win.html', {'player': player})
+            # toggled
+            return render(request, 'wait.html', {'player': player})
         return render(request, 'wait.html', {'player': player})
 
     if ans == level.answer:
@@ -99,7 +100,8 @@ def answer(request):
             return render(request, 'question2.html', {'player': player, 'level': level})
         except:
             if player.current_level > lastlevel:
-                return render(request, 'win.html', {'player': player}) 
+                # toggled
+                return render(request, 'wait.html', {'player': player}) 
             return render(request, 'wait.html', {'player': player})
     elif ans=="" and request.method == 'POST':
         pass 
