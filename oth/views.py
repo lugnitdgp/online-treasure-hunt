@@ -19,13 +19,15 @@ def index(request):
     user = request.user
     if user.is_authenticated:
         player = models.player.objects.get(user_id=request.user.pk)
+        if player.current_level > lastlevel:
+            return render(request , 'wait.html' , {'player':player})
         try:
             level = models.level.objects.get(l_number=player.current_level)
             #print(request.path)
             #print(level.l_number)
-            if request.path == '/home/' or level.l_number > 1 or level.l_number > 11:
+            if request.path == '/home/' or (level.l_number > 1 and level.l_number < 11) or (level.l_number > 11 and level.l_number < 18) :
                 return render(request, 'question2.html', {'player': player, 'level': level})
-            elif level.l_number == 11 and lastlevel == 18:
+            elif level.l_number == 11 and lastlevel == 18: #11 #18
                 return redirect('story2')
             else:
                 return redirect('story')
@@ -82,6 +84,8 @@ def answer(request):
     if request.method == 'POST':
         ans = request.POST.get('ans')
     player = models.player.objects.get(user_id=request.user.pk)
+    if player.current_level > lastlevel:
+        return render(request , 'wait.html' , {'player':player})
     try:
         level = models.level.objects.get(l_number=player.current_level)
     except models.level.DoesNotExist:
