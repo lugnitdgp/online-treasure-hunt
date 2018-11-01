@@ -23,13 +23,16 @@ def index(request):
             level = models.level.objects.get(l_number=player.current_level)
             print(request.path)
             print(level.l_number)
-            if request.path == '/home/' or level.l_number > 1:
+            if request.path == '/home/' or level.l_number > 1 or level.l_number > 11:
                 return render(request, 'question2.html', {'player': player, 'level': level})
+            elif level.l_number == 11 and lastlevel == 20:
+                return redirect('story')
             else:
                 return redirect('story')
         except models.level.DoesNotExist:
             if player.current_level > lastlevel:
-                return render(request, 'win.html', {'player': player})
+                # changes from win to wait
+                return render(request, 'wait.html', {'player': player})
             return render(request, 'wait.html', {'player': player})
 
     return render(request, 'index.html')
