@@ -21,8 +21,8 @@ def index(request):
         player = models.player.objects.get(user_id=request.user.pk)
         try:
             level = models.level.objects.get(l_number=player.current_level)
-            print(request.path)
-            print(level.l_number)
+            #print(request.path)
+            #print(level.l_number)
             if request.path == '/home/' or level.l_number > 1 or level.l_number > 11:
                 return render(request, 'question2.html', {'player': player, 'level': level})
             elif level.l_number == 11 and lastlevel == 18:
