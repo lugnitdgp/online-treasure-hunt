@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^lboard/$', views.lboard , name='lboard'),
     url(r'^rules/$', views.rules , name='rules'),
     url(r'^story/$', views.story , name='story'),
+    url(r'^story2/$', views.story2 , name='story2'),
     url(r'^api/scoreboard/$',views.leaderboard_api,name='leaderboard_api'),
 ]
 

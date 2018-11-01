@@ -26,7 +26,7 @@ def index(request):
             if request.path == '/home/' or level.l_number > 1 or level.l_number > 11:
                 return render(request, 'question2.html', {'player': player, 'level': level})
             elif level.l_number == 11 and lastlevel == 20:
-                return redirect('story')
+                return redirect('story2')
             else:
                 return redirect('story')
         except models.level.DoesNotExist:
@@ -43,6 +43,12 @@ def story(request):
         return redirect('/home')
     else:
         return render(request , 'story.html')
+
+def story2(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story2.html')
 
 
 def save_profile(backend, user, response, *args, **kwargs):
