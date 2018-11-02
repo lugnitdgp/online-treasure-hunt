@@ -25,9 +25,9 @@ def index(request):
             level = models.level.objects.get(l_number=player.current_level)
             #print(request.path)
             #print(level.l_number)
-            if request.path == '/home/' or (level.l_number > 1 and level.l_number < 11) or (level.l_number > 11 and level.l_number < 19) or (level.l_number > 19 and level.l_number <=25) :
+            if request.path == '/home/' or (level.l_number > 1 and level.l_number < 11) or (level.l_number > 11 and level.l_number < 20) or (level.l_number > 20 and level.l_number <=25) :
                 return render(request, 'question2.html', {'player': player, 'level': level})
-            elif level.l_number == 19 and lastlevel == 25:
+            elif level.l_number == 20 and lastlevel == 25:
                 return redirect('story3')
             elif level.l_number == 11 and lastlevel == 25: #11 #25
                 return redirect('story2')
