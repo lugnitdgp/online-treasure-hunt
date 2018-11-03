@@ -62,6 +62,13 @@ def story3(request):
         return render(request , 'story3.html')
 
 
+def story4(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story4.html')
+
+
 def save_profile(backend, user, response, *args, **kwargs):
     if backend.name == 'facebook':
         profile = user
