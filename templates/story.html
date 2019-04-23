@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Treasure Hunt</title>
+    <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- <script type='text/javascript' src="./js/parallax.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./css/main.css">  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/story.css' %}">
+</head>
+
+<body>
+    <!-- Header-Start -->
+    <ul class="nav-mobile">
+        <li class="nav-header">Online Treasure Hunt</li>
+        <li class="menu-container">
+            <input id="menu-toggle" type="checkbox">
+            <label for="menu-toggle" class="menu-button">
+                <svg class="icon-open" viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                </svg>
+                <svg class="icon-close" viewBox="0 0 100 100">
+                    <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z" />
+                </svg>
+            </label>
+            <ul class="menu-sidebar">
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/lboard">LeaderBoard</a></li>
+                <li><a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a></li>
+                <li class="page-logos">
+                    <div>
+                        <a class="page-logo" href="https://nitdgplug.org"><img src="{% static 'assets/logo.png' %}"></a>
+                        <!-- <span style="font-size: 100px;">|</span> -->
+                        <!--               <div class="page-logo" ><img src="./assets/line.png"></div> -->
+                        <a class="page-logo" href="https://avskr.in" alt="Aavishkar Logo"><img src="{% static 'assets/avskr2.png' %}"></a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- Header-End-->
+    <!-- Container -->
+    <div class="container">
+        <div class="story-box">
+            <h1>LEVEL 1</h1>
+            <p>The curse of Aztec Gold, was a dark magic cast upon the treasure of Cortes, consisting of a stone chest
+                with 882 pieces of gold. Hector Barbossa and his crew believing it to be a hoax, stole the gold and
+                were punished for eternity. The only way to lift this curse was to return all the pieces back to the
+                chest and payment in blood. The last gold taken by Bootstrap was now with his son. Help Barbossa find
+                Will Tuner who now had the medallion and his father’s blood in order to lift the curse.
+            </p>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Proceed">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+

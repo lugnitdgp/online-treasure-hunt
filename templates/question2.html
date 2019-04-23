@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Online Treasure Hunt</title>
+  <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/question2.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+    window.addEventListener("load", function (event) {
+      var element = document.getElementById("preloader");
+      element.parentNode.removeChild(element);
+      $('body').removeClass('preloader-active');
+      $('#preloader').fadeOut(1000);
+    });
+  </script>
+</head>
+
+<body class="preloader-active">
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="{% static 'assets/ship_load.gif' %}" />
+  </div>
+  <!--  -->
+  <ul class="nav-mobile">
+    <li class="nav-header">Online Treasure Hunt</li>
+    <li class="menu-container">
+      <input id="menu-toggle" type="checkbox">
+      <label for="menu-toggle" class="menu-button">
+        <svg class="icon-open" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 100 100">
+          <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z" />
+        </svg>
+      </label>
+      <ul class="menu-sidebar">
+        <li>{{ player.name }}</li>
+        <li><a href="/lboard">LeaderBoard</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a></li>
+        <li class="page-logos">
+          <div>
+            <a class="page-logo" href="https://avskr.in" alt="Aavishkar Logo"><img src="{% static 'assets/avskr2.png' %}"></a>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Header-End-->
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Question Box Start-->
+    <div class="question-box">
+        {% block msgblock %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags %} alert-{% if message.tags == " error" %}danger{% else %}{{ message.tags
+          }}{% endif %}"{% endif %} role="alert">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endblock %}
+
+        <div class="question">
+          <p>{{ level.l_number }} . {{ level.text }}</p>
+        </div>
+
+        {% if level.image.url != '/media/images/default.jpg' %}
+        <div class="image">
+          <img style="border-radius:5px;" src="{{ level.image.url }}" width="200px" />
+        </div>
+        {% endif %}
+
+        <!--Audio Hint-->
+
+        {%if level.audio.url != '/media/audios/default.mp3' %}
+
+        <div class="hint">
+          <audio src="{{ level.audio.url }}" id="audio"></audio>
+          <button class="audio-btn" type="button" onclick="playMusic()"><i class="fa fa-play"></i>&nbsp;Play Audio Hint</button>
+        </div>
+
+        {% endif %}
+
+
+        <h4>Write your answer here : </h4>
+
+        <!-- Answer Division -->
+        <form id="ans" method="POST" action="/answer/">
+          {% csrf_token %}
+          <input type="text" name="ans" placeholder="Enter answer" />
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    <!-- Question Box End -->
+
+    <!-- Stats Division -->
+    <div class="text">
+      <div class="accuracy">
+        <p>Accuracy: {{ level.accuracy }}</p>
+      </div>
+      <div class="ahead">
+        <p>Number of people crossed level: {{ level.numuser }}</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    var isPlaying = false;
+    function playMusic() {
+
+      var audio = document.getElementById('audio');
+      if (!isPlaying) {
+        audio.play();
+        isPlaying = true;
+      } else {
+        audio.pause();
+        isPlaying = false;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
+

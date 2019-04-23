@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Mali');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Mali');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Kodchasan');
+
+
+body{
+    background: url('../assets/landing.jpg');
+}
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.timer{
+    font-size: 100px;
+    color: #fff;
+    font-family: 'Kodchasan', sans-serif;
+}
+
+.desc {
+    font-size:30px;
+    margin: 10px auto;
+    color: #fff;
+    font-family: 'Mali',cursive;
+}
+
+.countdown img{
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    float: left;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .timer{
+        font-size: 35px;
+        color: #fff;
+        font-family: 'Kodchasan', sans-serif;
+        margin-bottom: 10vh;
+    }
+
+    .desc{
+        font-size: 20px;
+        color: #fff;
+        margin: 10px auto;
+        font-family: 'Mali' , cursive;
+    }
+}
+

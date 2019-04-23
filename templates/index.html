@@ -1,4 +1,116 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
-		<div class="stars"></div>
-		<div class="twinkling"></div>
-		<div class="clouds"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <title>Online Treasure Hunt</title>
+  <script type='text/javascript' src="{% static 'js/jquery.min.js' %}"></script>
+  <script type='text/javascript' src="{% static 'js/parallax.min.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/header2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+    window.addEventListener("load", function (event) {
+      var element = document.getElementById("preloader");
+      element.parentNode.removeChild(element);
+      $('body').removeClass('preloader-active');
+      $('#preloader').fadeOut(1000);
+    });
+  </script>
+</head>
+
+<body class="preloader-active">
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="{% static 'assets/ship_load.gif' %}" />
+  </div>
+  <!--  -->
+  <audio id="bg-audio" autoplay loop="true">
+    <source src="{% static 'music/home.mp3' %}" />
+  </audio>
+
+  <!-- Header-Start -->
+  <ul class="nav-mobile">
+    <li class="nav-header">Online Treasure Hunt</li>
+    <li class="menu-container">
+      <input id="menu-toggle" type="checkbox">
+      <label for="menu-toggle" class="menu-button">
+        <svg class="icon-open" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 100 100">
+          <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z" />
+        </svg>
+      </label>
+      <ul class="menu-sidebar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/lboard">LeaderBoard</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><button class="audio-toggle-button" onclick="toggleAudio()">Toggle music !</button></li>
+        <li class="page-logos">
+          <div>
+            <a class="page-logo" href="https://avskr.in" alt="Aavishkar Logo"><img src="{% static 'assets/avskr2.png' %}"></a>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Header-End-->
+
+  <div class="container">
+    <div class="section-1">
+      <div class="oth-logo">
+        <img src="{% static 'assets/oth_text3.png' %}">
+      </div>
+    </div>
+    <div class="section-2">
+      <div class="oth-rules">
+        {% if request.get_full_path == '/rules/' %}
+        <h1>Rules:</h1>
+        <ul>
+          <li>You will be facing several challenging levels. The answer to a level may be a single word, multiword or
+            digits.</li>
+          <li>Make sure you type in all the answers in lowercase characters without any space between the words.</li>
+          <li>Try to correlate hints provided in the tilte, slug, image and page source to find your way to answer.</li>
+          <li>Stay in touch with our official page which may help you in case you get stuck on any of the levels.</li>
+        </ul>
+        {% elif request.get_full_path == '/' %}
+        <h1>Rules:</h1>
+        <ul>
+          <li>You will be facing several challenging levels. The answer to a level may be a single word, multiword or
+            digits.</li>
+          <li>Make sure you type in all the answers in lowercase characters without any space between the words.</li>
+          <li>Try to correlate hints provided in the tilte, slug, image and page source to find your way to answer.</li>
+          <li>Stay in touch with our official page which may help you in case you get stuck on any of the levels.</li>
+        </ul>
+        <div class="sign-in_btns">
+          <h1>Register Here:&nbsp; </h1>
+
+          <p><button onclick="window.location='{% url 'social:begin' 'facebook' %}?next={{ request.path }}';" class="sign-in_btns facebook"><i
+                class="fa fa-facebook"></i> | Login with Facebook</button></p>
+          <p><button onclick="window.location='{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}';"
+              class="sign-in_btns google"><i class="fa fa-google"></i> | Login with Google</button></p>
+
+        </div>
+        {% endif %}
+
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <script>
+    function toggleAudio() {
+      var audio = document.getElementById("bg-audio");
+      audio.muted = !audio.muted;
+    }
+  </script>
+</body>
+
+</html>
+

@@ -1,13 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render , redirect
+from django.http import HttpResponse, HttpResponseRedirect , JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import models
 from django.contrib import messages
 from oth import models
 import datetime
+import json
 
 def landing(request):
-    return render(request, 'landing.html')
+    return render(request , 'countdown.html')
+
 
 def index(request):
 
@@ -17,15 +19,56 @@ def index(request):
     user = request.user
     if user.is_authenticated:
         player = models.player.objects.get(user_id=request.user.pk)
+        if player.current_level > lastlevel:
+            return render(request , 'wait.html' , {'player':player})
         try:
             level = models.level.objects.get(l_number=player.current_level)
-            return render(request, 'level.html', {'player': player, 'level': level})
+            #print(request.path)
+            #print(level.l_number)
+            if request.path == '/home/' or (level.l_number > 1 and level.l_number < 11) or (level.l_number > 11 and level.l_number < 20) or (level.l_number > 20 and level.l_number < 25) or (level.l_number > 25 and level.l_number <= 34) :
+                return render(request, 'question2.html', {'player': player, 'level': level})
+            elif level.l_number == 25 and lastlevel == 34:
+                return redirect('story4')
+            elif level.l_number == 20 and lastlevel == 34:
+                return redirect('story3')
+            elif level.l_number == 11 and lastlevel == 34: #11 #25
+                return redirect('story2')
+            elif level.l_number == 1 and lastlevel == 34:
+                return redirect('story')
         except models.level.DoesNotExist:
             if player.current_level > lastlevel:
-                return render(request, 'win.html', {'player': player})
-            return render(request, 'finish.html', {'player': player})
+                # changes from win to wait toggled
+                return render(request, 'wait.html', {'player': player})
+            return render(request, 'wait.html', {'player': player})
 
-    return render(request, 'index_page.html')
+    return render(request, 'index.html')
+
+
+def story(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story.html')
+
+def story2(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story2.html')
+
+
+def story3(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story3.html')
+
+
+def story4(request):
+    if request.method == 'POST':
+        return redirect('/home')
+    else:
+        return render(request , 'story4.html')
 
 
 def save_profile(backend, user, response, *args, **kwargs):
@@ -54,22 +97,22 @@ def answer(request):
     
     m_level = models.total_level.objects.get(id=1)
     lastlevel = m_level.totallevel
-    # print(lastlevel)
 
     ans = ""
     if request.method == 'POST':
         ans = request.POST.get('ans')
     player = models.player.objects.get(user_id=request.user.pk)
+    if player.current_level > lastlevel:
+        return render(request , 'wait.html' , {'player':player})
     try:
         level = models.level.objects.get(l_number=player.current_level)
     except models.level.DoesNotExist:
         if player.current_level > lastlevel:
-            return render(request, 'win.html', {'player': player})
-        return render(request, 'finish.html', {'player': player})
-    # print answer
-    # print level.answer
+            # toggled
+            return render(request, 'wait.html', {'player': player})
+        return render(request, 'wait.html', {'player': player})
+
     if ans == level.answer:
-        #print level.answer
         player.current_level = player.current_level + 1
         player.score = player.score + 10
         player.timestamp = datetime.datetime.now()
@@ -82,24 +125,27 @@ def answer(request):
             level = models.level.objects.get(l_number=player.current_level)
             return render(request, 'level_transition.html')
 
-            return render(request, 'level.html', {'player': player, 'level': level})
+            return render(request, 'question2.html', {'player': player, 'level': level})
         except:
             if player.current_level > lastlevel:
-                return render(request, 'win.html', {'player': player}) 
-            return render(request, 'finish.html', {'player': player})
-    elif ans=="":
+                # toggled
+                return render(request, 'wait.html', {'player': player}) 
+            return render(request, 'wait.html', {'player': player})
+    elif ans=="" and request.method == 'POST':
         pass 
-        # messages.error(request, "Please enter answer!")
+        messages.error(request , "Please enter an answer !")
 
     else:
-        level.wrong = level.wrong + 1
-        level.save()
+        if request.method == 'POST':
+            level.wrong = level.wrong + 1
+            level.save()
+            messages.error(request, "Wrong Answer!, Try Again")
 
-        messages.error(request, "Wrong Answer!, Try Again")
-
-    return render(request, 'level.html', {'player': player, 'level': level})
+    return render(request, 'question2.html', {'player': player, 'level': level})
 
 
+
+# Leaderboard view
 def lboard(request):
     p = models.player.objects.order_by('-score','timestamp')
     cur_rank = 1
@@ -108,7 +154,34 @@ def lboard(request):
         pl.rank = cur_rank
         cur_rank += 1
 
-    return render(request, 'lboard.html', {'players': p})
+    if request.user.is_authenticated:
+        player = models.player.objects.get(user_id=request.user.pk)
+        return render(request , 'leaderboard.html' , {'players':p,'player':player})
+    return render(request, 'leaderboard.html', {'players': p})
 
+
+# Rules View 
 def rules(request):
-    return render(request, 'index_page.html')
+    return render(request, 'index.html')
+
+
+'''Leaderboard API'''
+def leaderboard_api(request):
+    p = models.player.objects.order_by('-score','timestamp')
+    cur_rank = 1
+
+    players_array = []
+
+    for pl in p:
+        pl.rank = cur_rank
+        players_array.append({
+            'name':pl.name,
+            'rank':pl.rank,
+            'email':'',
+            'score':pl.score,
+        })
+        cur_rank += 1
+
+    return JsonResponse(players_array,safe=False)
+
+    
