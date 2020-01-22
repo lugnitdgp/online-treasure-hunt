@@ -18,15 +18,19 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/justified-nav.css' %}" rel="stylesheet">
-    
+
     <link href="{% static 'css/bootstrap-social.css' %}" rel="stylesheet">
 
-    <link href="{% static 'css/style_base.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+     <link href="{% static 'css/button.css' %}" rel="stylesheet">    
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css">
 
     <link href="https://fonts.googleapis.com/css?family=Capriola|Creepster|Droid+Sans|Merriweather|Montserrat" rel="stylesheet">
-    
   </head>
 
   <body class="bodypad">
@@ -39,22 +43,47 @@
 
 
       <!-- Site footer -->
-      <footer class="footer">
+
+
+    </div> <!-- /container -->
+    <footer class="footer">
+      <p>&copy; 2018. <strong>Developed by:</strong> GNU/Linux users group, NIT Durgapur</p>
+      <img src="{% static 'img/glug_logo.png'%}" alt="glug_logo">
+      <img src="/static/img/avskr_logo.png" alt="avskr_logo">
+      <div class="footerft">
+      <div id="button_ft"></div>
+      <div id="container_ft">
+      <div id="cont">
+      <div class="footer_center">
+        <p style="color:white;">&copy; 2018. <strong>Developed by:</strong> GNU/Linux users group, NIT Durgapur</p>
+        <img src="{% static 'img/glug_logo.png'%}" alt="glug_logo">
+        <img src="/static/img/avskr_logo.png" alt="avskr_logo">
+      </div>
+      </div>
+
+    </footer>
+<!--
+      <div class="footerft">
+      <div id="button_ft"></div>
+      <div id="container_ft">
+      <div id="cont">
+      <div class="footer_center">
         <p>&copy; 2018. <strong>Developed by:</strong> GNU/Linux users group, NIT Durgapur</p>
         <img src="{% static 'img/glug_logo.png'%}" alt="glug_logo">
         <img src="/static/img/avskr_logo.png" alt="avskr_logo">
+      </div>
+      </div>
+      </div>
+      </div> -->
 
-      </footer>
-
-    </div> <!-- /container -->
-    
-  
+<br>
 
   <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jss.js' %}"></script>
 
 
   </body>
